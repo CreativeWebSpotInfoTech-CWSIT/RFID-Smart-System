@@ -2,6 +2,7 @@
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { ArrowRight, Radio, Cpu, Layers } from "lucide-react";
+import Image from "next/image";
 
 export default function WhatWeDoSection() {
     return (
@@ -41,10 +42,11 @@ export default function WhatWeDoSection() {
                         <div className="relative overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-2xl">
                             <div className="aspect-[4/3] overflow-hidden bg-gradient-to-br from-teal-500 to-cyan-600">
                                 {/* Main Image */}
-                                <img
+                                <Image
                                     src="/EntryImg.jpeg"
                                     alt="RFID Smart System - Smart Solutions"
-                                    className="h-full w-full object-cover"
+                                    fill
+                                    className="object-cover"
                                 />
                                 {/* Subtle Overlay */}
                                 <div className="absolute inset-0 bg-gradient-to-t from-slate-900/30 via-transparent to-transparent" />

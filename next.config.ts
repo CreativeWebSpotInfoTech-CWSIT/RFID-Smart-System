@@ -8,7 +8,8 @@ const nextConfig: NextConfig = {
   },
   typescript: {
     ignoreBuildErrors: true,
-  },
+  },git commit -m "Remove basePath for Vercel deployment"
+
 };
 
 export default nextConfig;
