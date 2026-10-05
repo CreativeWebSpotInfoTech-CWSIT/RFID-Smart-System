@@ -32,8 +32,7 @@ jobs:
 
       - name: Install dependencies
         run: |
-          npm ci
-          # GitHub Linux server-ku mattum dhaan indha line. Local-la run pannadha!
+          npm install
           npm install lightningcss-linux-x64-gnu --no-save --force || true
 
       - name: Build with Next.js
