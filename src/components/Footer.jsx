@@ -175,7 +175,7 @@ export default function Footer() {
                                 <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-teal-700" />
 
                                 <p>
-                                    1201 N Orange St., STE 7445, Wilmington, DE 19801, USA
+                                    1201 N Orange St., STE 7445, North Street, DE 19801, Chennai-600073, Tamilnadu, India
                                 </p>
                             </div>
                         </motion.div>
@@ -281,24 +281,6 @@ export default function Footer() {
                             <div className="space-y-4">
                                 <div>
                                     <p className="mb-2 text-xs font-bold uppercase tracking-wider text-teal-700">
-                                        USA
-                                    </p>
-
-                                    <div className="space-y-1 text-sm text-slate-600">
-                                        <p className="flex items-center gap-2">
-                                            <Phone className="h-3.5 w-3.5 text-teal-700" />
-                                            Direct: +1 (484) 907-2135
-                                        </p>
-
-                                        <p className="flex items-center gap-2">
-                                            <Phone className="h-3.5 w-3.5 text-teal-700" />
-                                            Board: +1 (484) 917-1220 ext. 111
-                                        </p>
-                                    </div>
-                                </div>
-
-                                <div>
-                                    <p className="mb-2 text-xs font-bold uppercase tracking-wider text-teal-700">
                                         INDIA
                                     </p>
 
@@ -346,21 +328,21 @@ export default function Footer() {
 
                             <div className="space-y-2">
                                 <a
-                                    href="mailto:info@greenfuturz.com"
+                                    href="mailto:info@cwsinfo.com"
                                     className="group flex items-center gap-2 text-sm text-slate-600 transition hover:text-teal-700"
                                 >
                                     <Mail className="h-4 w-4 text-teal-700" />
 
-                                    info@greenfuturz.com
+                                    info@cwsinfo.com
                                 </a>
 
                                 <a
-                                    href="mailto:rfid@greenfuturz.com"
+                                    href="mailto:rfid@cwsinfo.com"
                                     className="group flex items-center gap-2 text-sm text-slate-600 transition hover:text-teal-700"
                                 >
                                     <Mail className="h-4 w-4 text-teal-700" />
 
-                                    rfid@greenfuturz.com
+                                    rfid@cwsinfo.com
                                 </a>
                             </div>
 
@@ -419,36 +401,6 @@ export default function Footer() {
                                     <Send className="h-4 w-4" />
                                 </button>
                             </form>
-                        </motion.div>
-
-                        {/* Corporate Brochure */}
-                        <motion.div
-                            initial={{ opacity: 0, y: 20 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                            transition={{
-                                duration: 0.5,
-                                delay: 0.35,
-                            }}
-                        >
-                            <h3 className="mb-4 text-lg font-bold text-teal-700">
-                                Corporate Brochure
-                            </h3>
-
-                            <p className="mb-5 text-sm text-slate-500">
-                                Download our complete product catalog and company overview.
-                            </p>
-
-                            <a
-                                href="#"
-                                className="group inline-flex items-center gap-2 rounded-full bg-teal-700 px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-teal-700/25 transition-all duration-300 hover:bg-teal-800 hover:shadow-xl hover:shadow-teal-700/30"
-                            >
-                                <Download className="h-4 w-4 transition-transform group-hover:-translate-y-0.5" />
-
-                                Download
-
-                                <ArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-                            </a>
                         </motion.div>
                     </div>
 
