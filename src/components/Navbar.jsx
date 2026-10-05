@@ -3,25 +3,69 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
-import { Menu, Search, X, ArrowRight, Users } from "lucide-react";
+import {
+    Menu,
+    Search,
+    X,
+    ArrowUpRight,
+    Warehouse,
+    Wrench,
+    Shirt,
+    ChevronDown,
+    Tag,
+    Radio,
+    Wifi,
+    Printer,
+    Package,
+    Award,
+    Shield,
+    Zap,
+    Globe,
+    Settings,
+    Truck,
+    CreditCard,
+    Monitor,
+    Smartphone,
+    Lock,
+    Factory,
+} from "lucide-react";
 
-const links = [
+const mainLinks = [
     { name: "Home", href: "/" },
     { name: "About", href: "/about-us" },
-    { name: "Products", href: "/products" },
-    { name: "Solutions", href: "/solutions" },
+    { name: "Products", href: "/products", hasDropdown: true },
+    { name: "Solutions", href: "/solutions", hasDropdown: true },
     { name: "Contact", href: "/contacts" },
+];
+
+const productLinks = [
+    { name: "Tags & Labels", href: "/products/tags-labels", icon: Tag, desc: "UHF, On-Metal, Laundry & Vehicle tags" },
+    { name: "RFID Readers", href: "/products/readers", icon: Radio, desc: "Fixed, Handheld & Desktop readers" },
+    { name: "Antennas", href: "/products/antennas", icon: Wifi, desc: "Circular & Linear polarized antennas" },
+    { name: "Printers", href: "/products/printers", icon: Printer, desc: "Industrial RFID label printers" },
+    { name: "Accessories", href: "/products/accessories", icon: Package, desc: "Encoders, cables, mounting kits" },
+    { name: "Authorized Brands", href: "/products/brands", icon: Award, desc: "Zebra, Impinj, Alien, Honeywell" },
+];
+
+const solutionLinks = [
+    { name: "Asset Tracking", href: "/solutions/asset-tracking", icon: Package, desc: "Real-time valuable asset identification" },
+    { name: "Inventory Management", href: "/solutions/inventory-management", icon: Monitor, desc: "99.9% accuracy, reduced manual effort" },
+    { name: "Warehouse Automation", href: "/solutions/warehouse-automation", icon: Warehouse, desc: "Automate inbound, outbound processes" },
+    { name: "Tool Tracking", href: "/solutions/tool-tracking", icon: Wrench, desc: "Monitor equipment & maintenance history" },
+    { name: "Laundry Management", href: "/solutions/laundry-management", icon: Shirt, desc: "Automate linen counting & lifecycle" },
+    { name: "Vehicle Management", href: "/solutions/vehicle-management", icon: Truck, desc: "RFID-based parking & fleet identification" },
+    { name: "Access Control", href: "/solutions/access-control", icon: Lock, desc: "Secure access using RFID credentials" },
+    { name: "WIP Tracking", href: "/solutions/wip-tracking", icon: Factory, desc: "Monitor production status across lines" },
 ];
 
 export default function Navbar() {
     const [open, setOpen] = useState(false);
     const [scrolled, setScrolled] = useState(false);
+    const [activeDropdown, setActiveDropdown] = useState(null);
     const pathname = usePathname();
 
     useEffect(() => {
-        const onScroll = () => {
-            setScrolled(window.scrollY > 20);
-        };
+        const onScroll = () => setScrolled(window.scrollY > 20);
         window.addEventListener("scroll", onScroll);
         return () => window.removeEventListener("scroll", onScroll);
     }, []);
@@ -33,31 +77,29 @@ export default function Navbar() {
 
     return (
         <header
-            className={`
-        fixed inset-x-0 top-0 z-50
-        transition-all duration-500
-        ${scrolled
+            className={`fixed inset-x-0 top-0 z-50 transition-all duration-500 ${scrolled
                     ? "bg-white/90 border-b border-slate-200/80 shadow-sm backdrop-blur-xl"
                     : "bg-transparent"
-                }
-      `}
+                }`}
         >
-            {/* Grid Pattern Background */}
-            <div className="absolute inset-0 bg-[linear-gradient(rgba(13,148,136,0.04)_1px,transparent_1px),linear-gradient(90deg,rgba(13,148,136,0.04)_1px,transparent_1px)] bg-[size:32px_32px] pointer-events-none" />
-
-            <div className="relative mx-auto flex h-[80px] max-w-[1400px] items-center justify-between px-5 sm:px-8 lg:px-10">
+            <div className="mx-auto flex h-[76px] max-w-[1400px] items-center justify-between px-5 sm:px-8 lg:px-10">
                 {/* LOGO */}
                 <Link href="/" className="group flex shrink-0 items-center gap-3">
-                    {/* Circular Teal Icon */}
-                    <div className="relative flex h-12 w-12 items-center justify-center rounded-full bg-gradient-to-br from-teal-600 to-teal-700 shadow-md shadow-teal-700/30 transition-all duration-300 group-hover:shadow-lg group-hover:shadow-teal-700/40">
-                        <Users className="h-6 w-6 text-white" />
+                    <div className="relative flex h-11 w-11 items-center justify-center overflow-hidden rounded-xl bg-slate-50 ring-1 ring-slate-200 transition-all duration-300 group-hover:ring-teal-500/40">
+                        <Image
+                            src="/logo.png"
+                            alt="RFID Smart System"
+                            width={44}
+                            height={44}
+                            priority
+                            className="object-contain"
+                        />
                     </div>
-                    {/* Brand Text */}
-                    <div className="hidden sm:flex flex-col leading-tight">
-                        <span className="font-serif-display text-[22px] font-bold tracking-tight text-slate-900">
-                            RFID Smart System
+                    <div className="hidden sm:flex flex-col leading-none">
+                        <span className="text-[20px] font-bold tracking-[-0.03em] text-slate-900">
+                            RFID <span className="text-teal-700">Smart System</span>
                         </span>
-                        <span className="text-[10px] font-bold uppercase tracking-[0.3em] text-teal-700">
+                        <span className="mt-1 text-[9px] font-semibold uppercase tracking-[0.28em] text-slate-500">
                             IoT Solutions
                         </span>
                     </div>
@@ -65,19 +107,63 @@ export default function Navbar() {
 
                 {/* DESKTOP NAV - Pill Container */}
                 <nav className="hidden md:flex items-center gap-1 rounded-full border border-slate-200 bg-white/80 px-2 py-2 shadow-sm backdrop-blur-md">
-                    {links.map((link) => {
+                    {mainLinks.map((link) => {
                         const active = isActive(link.href);
-                        return (
+                        return link.hasDropdown ? (
+                            <div
+                                key={link.name}
+                                className="relative"
+                                onMouseEnter={() => setActiveDropdown(link.name)}
+                                onMouseLeave={() => setActiveDropdown(null)}
+                            >
+                                <button
+                                    className={`flex items-center gap-1 rounded-full px-4 py-2.5 text-[14px] font-medium transition-all duration-300 ${active
+                                            ? "bg-teal-700 text-white shadow-sm"
+                                            : "text-slate-600 hover:bg-slate-100 hover:text-slate-900"
+                                        }`}
+                                    style={{ fontFamily: "'Georgia', serif" }}
+                                >
+                                    {link.name}
+                                    <ChevronDown
+                                        size={14}
+                                        className={`transition-transform duration-300 ${activeDropdown === link.name ? "rotate-180" : ""
+                                            }`}
+                                    />
+                                </button>
+
+                                {/* Dropdown Menu */}
+                                <div
+                                    className={`absolute top-full left-0 mt-2 w-80 rounded-2xl border border-slate-200 bg-white p-2 shadow-xl shadow-slate-200/50 transition-all duration-200 origin-top ${activeDropdown === link.name
+                                            ? "opacity-100 scale-100 visible"
+                                            : "opacity-0 scale-95 invisible"
+                                        }`}
+                                >
+                                    {(link.name === "Products" ? productLinks : solutionLinks).map((item) => (
+                                        <Link
+                                            key={item.name}
+                                            href={item.href}
+                                            className="flex items-start gap-3 rounded-xl p-3 transition-colors hover:bg-teal-50"
+                                        >
+                                            <div className="mt-0.5 flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-teal-100 text-teal-700">
+                                                <item.icon size={16} />
+                                            </div>
+                                            <div>
+                                                <p className="text-sm font-semibold text-slate-900">{item.name}</p>
+                                                <p className="text-xs text-slate-500 leading-relaxed">{item.desc}</p>
+                                            </div>
+                                        </Link>
+                                    ))}
+                                </div>
+                            </div>
+                        ) : (
                             <Link
                                 key={link.name}
                                 href={link.href}
-                                className={`
-                  relative rounded-full px-5 py-2.5 text-[14px] font-medium transition-all duration-300
-                  ${active
-                                        ? "bg-teal-700 text-white shadow-md shadow-teal-700/25"
-                                        : "text-slate-700 hover:bg-slate-100 hover:text-slate-900"
-                                    }
-                `}
+                                className={`rounded-full px-4 py-2.5 text-[14px] font-medium transition-all duration-300 ${active
+                                        ? "bg-teal-700 text-white shadow-sm"
+                                        : "text-slate-600 hover:bg-slate-100 hover:text-slate-900"
+                                    }`}
+                                style={{ fontFamily: "'Georgia', serif" }}
                             >
                                 {link.name}
                             </Link>
@@ -87,22 +173,19 @@ export default function Navbar() {
 
                 {/* RIGHT ACTIONS */}
                 <div className="hidden md:flex items-center gap-3">
-                    {/* Search Button */}
                     <button
                         type="button"
                         aria-label="Search"
-                        className="flex h-11 w-11 items-center justify-center rounded-full border border-slate-200 bg-white text-slate-600 transition-all duration-300 hover:border-teal-300 hover:bg-teal-50 hover:text-teal-700"
+                        className="flex h-10 w-10 items-center justify-center rounded-full border border-slate-200 bg-white text-slate-500 transition-all duration-300 hover:border-teal-300 hover:bg-teal-50 hover:text-teal-700"
                     >
-                        <Search className="h-[18px] w-[18px]" />
+                        <Search className="h-[17px] w-[17px]" />
                     </button>
-
-                    {/* Get a Quote Button */}
                     <Link
                         href="/contacts"
-                        className="group relative inline-flex items-center gap-2 overflow-hidden rounded-full bg-teal-700 px-6 py-3 text-[14px] font-semibold text-white shadow-lg shadow-teal-700/25 transition-all duration-300 hover:bg-teal-800 hover:shadow-xl hover:shadow-teal-700/30"
+                        className="group relative inline-flex items-center gap-2 overflow-hidden rounded-full bg-teal-700 px-5 py-2.5 text-[13px] font-semibold text-white shadow-md shadow-teal-700/20 transition-all duration-300 hover:bg-teal-800 hover:shadow-lg"
                     >
                         <span className="relative z-10">Get a Quote</span>
-                        <ArrowRight className="relative z-10 h-4 w-4 transition-transform duration-300 group-hover:translate-x-0.5" />
+                        <ArrowUpRight className="relative z-10 h-4 w-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
                     </Link>
                 </div>
 
@@ -119,39 +202,61 @@ export default function Navbar() {
 
             {/* MOBILE MENU */}
             <div
-                className={`
-          overflow-hidden border-t border-slate-200 bg-white/95 backdrop-blur-xl
-          transition-all duration-300 md:hidden
-          ${open ? "max-h-[500px] opacity-100" : "max-h-0 opacity-0"}
-        `}
+                className={`overflow-hidden border-t border-slate-200 bg-white/95 backdrop-blur-xl transition-all duration-300 md:hidden ${open ? "max-h-[800px] opacity-100" : "max-h-0 opacity-0"
+                    }`}
             >
                 <nav className="mx-auto flex max-w-[1400px] flex-col gap-1 px-5 py-5 sm:px-8">
-                    {links.map((link) => {
+                    {mainLinks.map((link) => {
                         const active = isActive(link.href);
-                        return (
+                        return link.hasDropdown ? (
+                            <div key={link.name} className="mt-2 rounded-xl border border-slate-100 bg-slate-50/50 overflow-hidden">
+                                <button
+                                    onClick={() => setActiveDropdown(activeDropdown === link.name ? null : link.name)}
+                                    className="flex w-full items-center justify-between px-4 py-3 text-[15px] font-medium text-slate-700"
+                                >
+                                    {link.name}
+                                    <ChevronDown
+                                        size={16}
+                                        className={`transition-transform ${activeDropdown === link.name ? "rotate-180" : ""}`}
+                                    />
+                                </button>
+                                {activeDropdown === link.name && (
+                                    <div className="border-t border-slate-100 px-2 pb-2 pt-1">
+                                        {(link.name === "Products" ? productLinks : solutionLinks).map((item) => (
+                                            <Link
+                                                key={item.name}
+                                                href={item.href}
+                                                onClick={() => setOpen(false)}
+                                                className="flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm text-slate-600 transition hover:bg-teal-50 hover:text-teal-700"
+                                            >
+                                                <item.icon size={16} className="text-teal-600" />
+                                                {item.name}
+                                            </Link>
+                                        ))}
+                                    </div>
+                                )}
+                            </div>
+                        ) : (
                             <Link
                                 key={link.name}
                                 href={link.href}
                                 onClick={() => setOpen(false)}
-                                className={`
-                  rounded-xl px-4 py-3 text-[15px] font-medium transition
-                  ${active
+                                className={`rounded-xl px-4 py-3 text-[15px] font-medium transition ${active
                                         ? "bg-teal-700 text-white"
                                         : "text-slate-700 hover:bg-slate-50 hover:text-teal-700"
-                                    }
-                `}
+                                    }`}
                             >
                                 {link.name}
                             </Link>
                         );
                     })}
+
                     <Link
                         href="/contacts"
                         onClick={() => setOpen(false)}
-                        className="mt-3 flex items-center justify-center gap-2 rounded-full bg-teal-700 px-6 py-3 text-sm font-semibold text-white shadow-md"
+                        className="mt-4 flex items-center justify-center gap-2 rounded-full bg-teal-700 px-6 py-3 text-sm font-semibold text-white shadow-md"
                     >
-                        Get a Quote
-                        <ArrowRight className="h-4 w-4" />
+                        Get a Quote <ArrowUpRight className="h-4 w-4" />
                     </Link>
                 </nav>
             </div>
