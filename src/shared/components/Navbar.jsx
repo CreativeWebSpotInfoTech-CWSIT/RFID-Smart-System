@@ -80,11 +80,11 @@ export default function Navbar() {
                 : "bg-transparent"
                 }`}
         >
-            <div className="mx-auto flex h-[80px] max-w-[1400px] items-center justify-between px-5 sm:px-8 lg:px-10">
+            <div className="mx-auto flex h-[80px] max-w-[1400px] items-center justify-between gap-3 px-4 sm:px-6 lg:px-10">
 
-                {/* Logo - Bigger & Clearer */}
-                <Link href="/" className="group flex shrink-0 items-center gap-3.5">
-                    <div className="relative flex h-12 w-12 items-center justify-center overflow-hidden rounded-xl bg-white shadow-sm ring-1 ring-slate-200 transition-all duration-300 group-hover:ring-blue-500/50 group-hover:shadow-md">
+                {/* Logo */}
+                <Link href="/" className="group flex shrink-0 items-center gap-2.5 lg:gap-3.5">
+                    <div className="relative flex h-10 w-10 lg:h-12 lg:w-12 items-center justify-center overflow-hidden rounded-xl bg-white shadow-sm ring-1 ring-slate-200 transition-all duration-300 group-hover:ring-blue-500/50 group-hover:shadow-md">
                         <Image
                             src="/images/logo.png"
                             alt="RFID Smart System"
@@ -95,17 +95,17 @@ export default function Navbar() {
                         />
                     </div>
                     <div className="hidden sm:flex flex-col leading-none">
-                        <span className="text-[20px] font-bold tracking-[-0.03em] text-slate-900">
+                        <span className="text-[16px] lg:text-[20px] font-bold tracking-[-0.03em] text-slate-900">
                             RFID <span className="text-blue-900">Smart System</span>
                         </span>
-                        <span className="mt-1 text-[9px] font-semibold uppercase tracking-[0.28em] text-slate-500">
+                        <span className="mt-0.5 lg:mt-1 text-[8px] lg:text-[9px] font-semibold uppercase tracking-[0.22em] lg:tracking-[0.28em] text-slate-500">
                             IoT Solutions
                         </span>
                     </div>
                 </Link>
 
-                {/* Desktop Nav */}
-                <nav className="hidden md:flex items-center gap-1 rounded-full border border-slate-200 bg-white/80 px-2 py-2 shadow-sm backdrop-blur-md">
+                {/* Desktop / Tablet Nav */}
+                <nav className="hidden md:flex items-center gap-0.5 lg:gap-1 rounded-full border border-slate-200 bg-white/80 px-1.5 lg:px-2 py-1.5 lg:py-2 shadow-sm backdrop-blur-md">
                     {mainLinks.map((link) => {
                         const active = isActive(link.href);
                         return link.hasDropdown ? (
@@ -116,7 +116,7 @@ export default function Navbar() {
                                 onMouseLeave={() => setActiveDropdown(null)}
                             >
                                 <button
-                                    className={`flex items-center gap-1 rounded-full px-4 py-2.5 text-[14px] font-medium transition-all duration-300 ${active
+                                    className={`flex items-center gap-1 rounded-full px-2.5 lg:px-4 py-2 text-[13px] lg:text-[14px] font-medium transition-all duration-300 ${active
                                         ? "bg-blue-900 text-white shadow-sm"
                                         : "text-slate-600 hover:bg-slate-100 hover:text-slate-900"
                                         }`}
@@ -136,25 +136,34 @@ export default function Navbar() {
                                         }`}
                                 >
                                     {(link.name === "Products" ? productLinks : solutionLinks).map(
-                                        (item) => (
-                                            <Link
-                                                key={item.name}
-                                                href={item.href}
-                                                className="flex items-start gap-3 rounded-xl p-3 transition-colors hover:bg-blue-50"
-                                            >
-                                                <div className="mt-0.5 flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-blue-100 text-blue-900">
-                                                    <item.icon size={16} />
-                                                </div>
-                                                <div>
-                                                    <p className="text-sm font-semibold text-slate-900">
-                                                        {item.name}
-                                                    </p>
-                                                    <p className="text-xs text-slate-500 leading-relaxed">
-                                                        {item.desc}
-                                                    </p>
-                                                </div>
-                                            </Link>
-                                        )
+                                        (item) => {
+                                            const isItemActive = pathname === item.href;
+                                            return (
+                                                <Link
+                                                    key={item.name}
+                                                    href={item.href}
+                                                    className={`flex items-start gap-3 rounded-xl p-3 transition-colors ${isItemActive
+                                                        ? "bg-blue-50 text-blue-900"
+                                                        : "hover:bg-blue-50"
+                                                        }`}
+                                                >
+                                                    <div className={`mt-0.5 flex h-9 w-9 shrink-0 items-center justify-center rounded-lg ${isItemActive
+                                                        ? "bg-blue-900 text-white"
+                                                        : "bg-blue-100 text-blue-900"
+                                                        }`}>
+                                                        <item.icon size={16} />
+                                                    </div>
+                                                    <div>
+                                                        <p className={`text-sm font-semibold ${isItemActive ? "text-blue-900" : "text-slate-900"}`}>
+                                                            {item.name}
+                                                        </p>
+                                                        <p className="text-xs text-slate-500 leading-relaxed">
+                                                            {item.desc}
+                                                        </p>
+                                                    </div>
+                                                </Link>
+                                            );
+                                        }
                                     )}
                                 </div>
                             </div>
@@ -162,7 +171,7 @@ export default function Navbar() {
                             <Link
                                 key={link.name}
                                 href={link.href}
-                                className={`rounded-full px-4 py-2.5 text-[14px] font-medium transition-all duration-300 ${active
+                                className={`rounded-full px-2.5 lg:px-4 py-2 text-[13px] lg:text-[14px] font-medium transition-all duration-300 ${active
                                     ? "bg-blue-900 text-white shadow-sm"
                                     : "text-slate-600 hover:bg-slate-100 hover:text-slate-900"
                                     }`}
@@ -174,13 +183,13 @@ export default function Navbar() {
                 </nav>
 
                 {/* CTA */}
-                <div className="hidden md:flex items-center gap-3">
+                <div className="hidden md:flex items-center shrink-0">
                     <Link
                         href="/contacts"
-                        className="btn-shimmer group relative inline-flex items-center gap-2 overflow-hidden rounded-full bg-blue-900 px-5 py-2.5 text-[13px] font-semibold text-white shadow-md shadow-blue-900/20 transition-all duration-300 hover:bg-blue-800 hover:shadow-lg"
+                        className="btn-shimmer group relative inline-flex items-center gap-1.5 lg:gap-2 overflow-hidden rounded-full bg-blue-900 px-3.5 lg:px-5 py-2 lg:py-2.5 text-[12px] lg:text-[13px] font-semibold text-white shadow-md shadow-blue-900/20 transition-all duration-300 hover:bg-blue-800 hover:shadow-lg"
                     >
-                        <span className="relative z-10">Get a Quote</span>
-                        <ArrowUpRight className="relative z-10 h-4 w-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                        <span className="relative z-10 whitespace-nowrap">Get a Quote</span>
+                        <ArrowUpRight className="relative z-10 h-3.5 w-3.5 lg:h-4 lg:w-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
                     </Link>
                 </div>
 
@@ -228,17 +237,23 @@ export default function Navbar() {
                                         {(link.name === "Products"
                                             ? productLinks
                                             : solutionLinks
-                                        ).map((item) => (
-                                            <Link
-                                                key={item.name}
-                                                href={item.href}
-                                                onClick={() => setOpen(false)}
-                                                className="flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm text-slate-600 transition hover:bg-blue-50 hover:text-blue-900"
-                                            >
-                                                <item.icon size={16} className="text-blue-900" />
-                                                {item.name}
-                                            </Link>
-                                        ))}
+                                        ).map((item) => {
+                                            const isItemActive = pathname === item.href;
+                                            return (
+                                                <Link
+                                                    key={item.name}
+                                                    href={item.href}
+                                                    onClick={() => setOpen(false)}
+                                                    className={`flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm transition ${isItemActive
+                                                        ? "bg-blue-50 text-blue-900 font-medium"
+                                                        : "text-slate-600 hover:bg-blue-50 hover:text-blue-900"
+                                                        }`}
+                                                >
+                                                    <item.icon size={16} className={isItemActive ? "text-blue-900" : "text-blue-900"} />
+                                                    {item.name}
+                                                </Link>
+                                            );
+                                        })}
                                     </div>
                                 )}
                             </div>

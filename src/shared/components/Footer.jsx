@@ -211,10 +211,10 @@ export default function Footer() {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ delay: 0.25 }}
-                        className="mt-14 rounded-2xl border border-slate-200 bg-white p-6 shadow-sm sm:p-8"
+                        className="mt-14 rounded-2xl border border-slate-200 bg-white p-5 sm:p-6 lg:p-8 shadow-sm"
                     >
-                        <div className="flex flex-col gap-6 sm:flex-row sm:items-center sm:justify-between">
-                            <div>
+                        <div className="flex flex-col gap-5 sm:flex-row sm:items-center sm:justify-between sm:gap-6">
+                            <div className="shrink-0">
                                 <h4 className="text-lg font-semibold text-slate-900">Stay Updated</h4>
                                 <p className="mt-1 text-sm text-slate-500">
                                     Get the latest RFID insights and product updates.
@@ -228,11 +228,11 @@ export default function Footer() {
                                 <input
                                     type="email"
                                     placeholder="Enter your email"
-                                    className="flex-1 bg-transparent px-5 py-3 text-sm text-slate-800 placeholder-slate-400 outline-none"
+                                    className="min-w-0 flex-1 bg-transparent px-4 sm:px-5 py-3 text-sm text-slate-800 placeholder-slate-400 outline-none"
                                 />
                                 <button
                                     type="submit"
-                                    className="flex items-center gap-2 bg-blue-900 px-5 text-sm font-medium text-white transition hover:bg-blue-800"
+                                    className="flex shrink-0 items-center gap-1.5 sm:gap-2 bg-blue-900 px-4 sm:px-5 text-sm font-medium text-white transition hover:bg-blue-800 whitespace-nowrap"
                                 >
                                     Subscribe
                                     <Send className="h-4 w-4" />
