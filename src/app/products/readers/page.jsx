@@ -1,32 +1,13 @@
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
+import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, CheckCircle2, Radio, Smartphone, Monitor } from "lucide-react";
-
-const products = [
-    {
-        title: "Fixed RFID Readers",
-        desc: "Ideal for Warehouse Portals, Conveyor Systems, Dock Doors, and Automated Checkpoints.",
-        icon: Radio,
-        features: ["Multi-antenna support", "High read range", "PoE capable", "Industrial grade"],
-    },
-    {
-        title: "Handheld RFID Readers",
-        desc: "Android-based mobile readers for Inventory Audits, Stock Verification, Asset Tracking, and Cycle Counting.",
-        icon: Smartphone,
-        features: ["Android OS", "Long battery life", "Rugged design", "Built-in barcode"],
-    },
-    {
-        title: "Desktop RFID Readers",
-        desc: "Suitable for Encoding, Testing, Healthcare, Library Management, and Laboratory Applications.",
-        icon: Monitor,
-        features: ["USB connectivity", "Compact design", "High precision", "SDK included"],
-    },
-];
+import { ArrowRight, CheckCircle2 } from "lucide-react";
+import Navbar from "@/src/shared/components/Navbar";
+import Footer from "@/src/shared/components/Footer";
+import { readersProducts } from "@/src/features/products/data";
 
 export const metadata = {
     title: "RFID Readers | RFID Smart System",
-    description: "Fixed, handheld, and desktop RFID readers for every industrial application.",
+    description: "Fixed, handheld and desktop RFID readers for industrial data capture.",
 };
 
 export default function ReadersPage() {
@@ -34,56 +15,72 @@ export default function ReadersPage() {
         <>
             <Navbar />
             <main className="bg-white">
-                <section className="relative overflow-hidden bg-gradient-to-br from-blue-50 via-white to-cyan-50 pt-32 pb-20">
-                    <div className="absolute inset-0 bg-[linear-gradient(rgba(59,130,246,0.04)_1px,transparent_1px),linear-gradient(90deg,rgba(59,130,246,0.04)_1px,transparent_1px)] bg-[size:40px_40px]" />
+                <section className="relative overflow-hidden bg-gradient-to-br from-slate-50 via-white to-blue-50 pt-32 pb-12">
                     <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-                        <Link href="/products" className="inline-flex items-center gap-2 text-sm font-medium text-slate-500 hover:text-teal-700 mb-6">← Back to Products</Link>
-                        <div className="inline-flex items-center gap-2 rounded-full border border-blue-200 bg-white/80 px-4 py-1.5 text-xs font-semibold text-blue-800 shadow-sm backdrop-blur-sm mb-6">
-                            <span className="h-1.5 w-1.5 rounded-full bg-blue-600" />
-                            RFID READERS
-                        </div>
-                        <h1 className="text-4xl font-bold tracking-tight text-slate-900 sm:text-5xl lg:text-6xl">
-                            Intelligent <span className="text-blue-700">Data Capture</span> Devices
+                        <Link href="/products" className="mb-4 inline-flex text-sm font-medium text-slate-500 hover:text-blue-900">
+                            ← Back to Products
+                        </Link>
+                        <h1 className="text-4xl font-bold tracking-tight text-slate-900 sm:text-5xl">
+                            Intelligent <span className="text-gradient-navy">Data Capture</span>
                         </h1>
-                        <p className="mt-6 max-w-2xl text-lg leading-relaxed text-slate-600">
-                            From fixed portal readers to rugged handhelds — capture RFID data accurately in any environment.
+                        <p className="mt-4 max-w-xl text-base text-slate-600">
+                            Fixed portals, rugged handhelds and precision desktop readers.
                         </p>
                     </div>
                 </section>
 
-                <section className="py-24 sm:py-32">
+                <section className="pb-16">
                     <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-                        <div className="grid gap-8 md:grid-cols-3">
-                            {products.map((item, i) => (
-                                <div key={item.title} className="group relative overflow-hidden rounded-3xl border border-slate-200 bg-white p-8 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-slate-200/50">
-                                    <div className="mb-6 flex h-14 w-14 items-center justify-center rounded-2xl bg-blue-100 text-blue-700 transition-transform duration-300 group-hover:scale-110">
-                                        <item.icon size={28} />
+                        <div className="grid gap-6 md:grid-cols-3">
+                            {readersProducts.map((item, i) => (
+                                <article
+                                    key={item.title}
+                                    className="group flex flex-col overflow-hidden rounded-2xl bg-slate-50 transition hover:bg-white hover:shadow-xl hover:shadow-blue-100/30"
+                                >
+                                    <div className="relative aspect-[3/4] overflow-hidden">
+                                        <Image
+                                            src={item.image}
+                                            alt={item.title}
+                                            fill
+                                            className="object-cover transition duration-700 group-hover:scale-105"
+                                            sizes="(max-width: 768px) 100vw, 33vw"
+                                            priority={i === 0}
+                                            quality={85}
+                                        />
+                                        <div className="absolute inset-0 bg-gradient-to-t from-slate-900/70 via-slate-900/20 to-transparent" />
+                                        <div className="absolute bottom-0 left-0 right-0 p-5">
+                                            <h2 className="text-xl font-bold text-white">{item.title}</h2>
+                                        </div>
                                     </div>
-                                    <h3 className="text-2xl font-bold text-slate-900">{item.title}</h3>
-                                    <p className="mt-3 text-base leading-relaxed text-slate-600">{item.desc}</p>
-                                    <div className="mt-6 space-y-2">
-                                        {item.features.map((feature) => (
-                                            <div key={feature} className="flex items-center gap-2 text-sm text-slate-700">
-                                                <CheckCircle2 size={16} className="text-blue-600 shrink-0" />
-                                                {feature}
-                                            </div>
-                                        ))}
+                                    <div className="flex flex-1 flex-col p-5">
+                                        <p className="text-sm leading-relaxed text-slate-600">{item.desc}</p>
+                                        <ul className="mt-4 space-y-1.5">
+                                            {item.features.map((f) => (
+                                                <li key={f} className="flex items-center gap-2 text-sm text-slate-700">
+                                                    <CheckCircle2 size={13} className="text-blue-700" />
+                                                    {f}
+                                                </li>
+                                            ))}
+                                        </ul>
+                                        <Link
+                                            href="/contacts"
+                                            className="mt-auto pt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-blue-900 hover:underline"
+                                        >
+                                            Request Quote <ArrowRight size={13} />
+                                        </Link>
                                     </div>
-                                    <Link href="/contacts" className="mt-8 inline-flex items-center gap-2 rounded-full bg-blue-700 px-6 py-3 text-sm font-semibold text-white shadow-md shadow-blue-700/20 transition-all hover:bg-blue-800 hover:shadow-lg">
-                                        Request Quote <ArrowRight size={16} />
-                                    </Link>
-                                </div>
+                                </article>
                             ))}
                         </div>
                     </div>
                 </section>
 
-                <section className="bg-gradient-to-br from-slate-900 to-blue-900 py-20">
-                    <div className="mx-auto max-w-4xl px-4 text-center sm:px-6 lg:px-8">
-                        <h2 className="text-3xl font-bold text-white sm:text-4xl">Need a reader recommendation?</h2>
-                        <p className="mt-4 text-lg text-slate-300">Tell us your use case and we'll suggest the perfect reader.</p>
-                        <Link href="/contacts" className="mt-8 inline-flex items-center gap-2 rounded-full bg-blue-600 px-8 py-4 text-base font-semibold text-white shadow-lg shadow-blue-600/30 transition-all hover:bg-blue-500 hover:shadow-xl">
-                            Talk to an Expert <ArrowRight size={18} />
+                <section className="bg-slate-900 py-14">
+                    <div className="mx-auto max-w-3xl px-4 text-center">
+                        <h2 className="text-2xl font-bold text-white">Need a reader recommendation?</h2>
+                        <p className="mt-2 text-slate-400">Tell us your use case — we&apos;ll suggest the right device.</p>
+                        <Link href="/contacts" className="mt-5 inline-flex items-center gap-2 rounded-full bg-blue-900 px-6 py-3 text-sm font-semibold text-white hover:bg-blue-800">
+                            Talk to an Expert <ArrowRight size={14} />
                         </Link>
                     </div>
                 </section>
