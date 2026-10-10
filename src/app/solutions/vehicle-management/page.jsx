@@ -1,34 +1,28 @@
-import SolutionPageTemplate from "@/components/solutions/SolutionPageTemplate";
+import SolutionPageTemplate from "@/src/features/solutions/components/SolutionPageTemplate";
+import { vehicleContent } from "@/src/features/solutions/data";
 
 export const metadata = {
     title: "Vehicle Management Solution | RFID Smart System",
-    description: "RFID-based parking access control and automated fleet identification.",
+    description: vehicleContent.description,
+    openGraph: {
+        title: "Vehicle Management Solution | RFID Smart System",
+        description: vehicleContent.description,
+        url: "https://www.rfidsmartsystem.com/solutions/vehicle-management",
+        images: [{ url: vehicleContent.image }],
+    },
+    robots: { index: true, follow: true },
 };
-
-const benefits = [
-    { title: "Automated Access Control", desc: "Grant or deny vehicle access automatically." },
-    { title: "Fleet Identification", desc: "Identify vehicles instantly with RFID tags." },
-    { title: "Parking Management", desc: "Manage parking spaces and track vehicle movements." },
-    { title: "Toll Collection", desc: "Automate toll collection with RFID transponders." },
-];
-
-const useCases = [
-    "Corporate parking lot management",
-    "Gated community vehicle access",
-    "Fleet vehicle identification",
-    "Toll road systems",
-    "Car rental facility management",
-    "Airport parking management",
-];
 
 export default function VehicleManagementPage() {
     return (
         <SolutionPageTemplate
-            title="Vehicle Management"
-            subtitle="VEHICLE SOLUTION"
-            description="RFID-based parking access control and automated fleet identification systems. Our vehicle management solution streamlines access control and improves security."
-            benefits={benefits}
-            useCases={useCases}
+            title={vehicleContent.title}
+            subtitle={vehicleContent.subtitle}
+            description={vehicleContent.description}
+            image={vehicleContent.image}
+            benefits={vehicleContent.benefits}
+            useCases={vehicleContent.useCases}
+            howItWorks={vehicleContent.howItWorks}
         />
     );
 }

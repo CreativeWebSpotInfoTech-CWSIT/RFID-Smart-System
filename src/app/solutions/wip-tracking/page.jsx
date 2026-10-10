@@ -1,34 +1,28 @@
-import SolutionPageTemplate from "@/components/solutions/SolutionPageTemplate";
+import SolutionPageTemplate from "@/src/features/solutions/components/SolutionPageTemplate";
+import { wipTrackingContent } from "@/src/features/solutions/data";
 
 export const metadata = {
     title: "WIP Tracking Solution | RFID Smart System",
-    description: "Monitor production status and material flow across manufacturing assembly lines.",
+    description: wipTrackingContent.description,
+    openGraph: {
+        title: "WIP Tracking Solution | RFID Smart System",
+        description: wipTrackingContent.description,
+        url: "https://www.rfidsmartsystem.com/solutions/wip-tracking",
+        images: [{ url: wipTrackingContent.image }],
+    },
+    robots: { index: true, follow: true },
 };
-
-const benefits = [
-    { title: "Real-Time Production Visibility", desc: "Track work-in-progress items across all production stages." },
-    { title: "Bottleneck Identification", desc: "Identify and resolve production bottlenecks quickly." },
-    { title: "Quality Control", desc: "Track quality checks and ensure compliance." },
-    { title: "Efficiency Optimization", desc: "Optimize production flow and reduce cycle times." },
-];
-
-const useCases = [
-    "Automotive assembly line tracking",
-    "Electronics manufacturing WIP",
-    "Pharmaceutical production tracking",
-    "Food and beverage production",
-    "Textile manufacturing",
-    "Aerospace component tracking",
-];
 
 export default function WipTrackingPage() {
     return (
         <SolutionPageTemplate
-            title="WIP Tracking"
-            subtitle="MANUFACTURING SOLUTION"
-            description="Monitor production status and material flow across manufacturing assembly lines. Our WIP tracking solution provides complete visibility into your production process."
-            benefits={benefits}
-            useCases={useCases}
+            title={wipTrackingContent.title}
+            subtitle={wipTrackingContent.subtitle}
+            description={wipTrackingContent.description}
+            image={wipTrackingContent.image}
+            benefits={wipTrackingContent.benefits}
+            useCases={wipTrackingContent.useCases}
+            howItWorks={wipTrackingContent.howItWorks}
         />
     );
 }

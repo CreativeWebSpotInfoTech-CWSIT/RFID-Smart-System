@@ -1,34 +1,28 @@
-import SolutionPageTemplate from "@/components/solutions/SolutionPageTemplate";
+import SolutionPageTemplate from "@/src/features/solutions/components/SolutionPageTemplate";
+import { laundryContent } from "@/src/features/solutions/data";
 
 export const metadata = {
     title: "Laundry Management Solution | RFID Smart System",
-    description: "Automate linen counting, distribution, and lifecycle management with RFID.",
+    description: laundryContent.description,
+    openGraph: {
+        title: "Laundry Management Solution | RFID Smart System",
+        description: laundryContent.description,
+        url: "https://www.rfidsmartsystem.com/solutions/laundry-management",
+        images: [{ url: laundryContent.image }],
+    },
+    robots: { index: true, follow: true },
 };
-
-const benefits = [
-    { title: "Automated Counting", desc: "Count hundreds of linen items in seconds with RFID." },
-    { title: "Lifecycle Tracking", desc: "Track wash cycles and monitor linen lifespan." },
-    { title: "Loss Prevention", desc: "Reduce linen loss with automated tracking." },
-    { title: "Distribution Accuracy", desc: "Ensure correct linen distribution to departments." },
-];
-
-const useCases = [
-    "Hotel linen management",
-    "Hospital textile tracking",
-    "Commercial laundry facilities",
-    "Uniform management for corporations",
-    "Restaurant tablecloth and napkin tracking",
-    "Spa and wellness center linen management",
-];
 
 export default function LaundryManagementPage() {
     return (
         <SolutionPageTemplate
-            title="Laundry Management"
-            subtitle="LAUNDRY SOLUTION"
-            description="Automate linen counting, distribution, and lifecycle management for hotels and hospitals. Our RFID laundry management system reduces loss and improves operational efficiency."
-            benefits={benefits}
-            useCases={useCases}
+            title={laundryContent.title}
+            subtitle={laundryContent.subtitle}
+            description={laundryContent.description}
+            image={laundryContent.image}
+            benefits={laundryContent.benefits}
+            useCases={laundryContent.useCases}
+            howItWorks={laundryContent.howItWorks}
         />
     );
 }
