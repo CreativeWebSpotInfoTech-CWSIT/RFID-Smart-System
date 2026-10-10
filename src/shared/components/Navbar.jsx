@@ -63,6 +63,11 @@ export default function Navbar() {
         return () => window.removeEventListener("scroll", onScroll);
     }, []);
 
+    // Reset scroll to top on every route change
+    useEffect(() => {
+        window.scrollTo({ top: 0, behavior: "instant" });
+    }, [pathname]);
+
     const isActive = (href) => {
         if (href === "/") return pathname === "/";
         return pathname.startsWith(href);
@@ -71,8 +76,8 @@ export default function Navbar() {
     return (
         <header
             className={`fixed inset-x-0 top-0 z-50 transition-all duration-500 ${scrolled
-                    ? "bg-white/90 border-b border-slate-200/80 shadow-sm backdrop-blur-xl"
-                    : "bg-transparent"
+                ? "bg-white/90 border-b border-slate-200/80 shadow-sm backdrop-blur-xl"
+                : "bg-transparent"
                 }`}
         >
             <div className="mx-auto flex h-[80px] max-w-[1400px] items-center justify-between px-5 sm:px-8 lg:px-10">
@@ -112,8 +117,8 @@ export default function Navbar() {
                             >
                                 <button
                                     className={`flex items-center gap-1 rounded-full px-4 py-2.5 text-[14px] font-medium transition-all duration-300 ${active
-                                            ? "bg-blue-900 text-white shadow-sm"
-                                            : "text-slate-600 hover:bg-slate-100 hover:text-slate-900"
+                                        ? "bg-blue-900 text-white shadow-sm"
+                                        : "text-slate-600 hover:bg-slate-100 hover:text-slate-900"
                                         }`}
                                 >
                                     {link.name}
@@ -126,8 +131,8 @@ export default function Navbar() {
 
                                 <div
                                     className={`absolute top-full left-0 mt-2 w-80 rounded-2xl border border-slate-200 bg-white p-2 shadow-xl shadow-slate-200/50 transition-all duration-200 origin-top ${activeDropdown === link.name
-                                            ? "opacity-100 scale-100 visible"
-                                            : "opacity-0 scale-95 invisible"
+                                        ? "opacity-100 scale-100 visible"
+                                        : "opacity-0 scale-95 invisible"
                                         }`}
                                 >
                                     {(link.name === "Products" ? productLinks : solutionLinks).map(
@@ -158,8 +163,8 @@ export default function Navbar() {
                                 key={link.name}
                                 href={link.href}
                                 className={`rounded-full px-4 py-2.5 text-[14px] font-medium transition-all duration-300 ${active
-                                        ? "bg-blue-900 text-white shadow-sm"
-                                        : "text-slate-600 hover:bg-slate-100 hover:text-slate-900"
+                                    ? "bg-blue-900 text-white shadow-sm"
+                                    : "text-slate-600 hover:bg-slate-100 hover:text-slate-900"
                                     }`}
                             >
                                 {link.name}
@@ -243,8 +248,8 @@ export default function Navbar() {
                                 href={link.href}
                                 onClick={() => setOpen(false)}
                                 className={`rounded-xl px-4 py-3 text-[15px] font-medium transition ${active
-                                        ? "bg-blue-900 text-white"
-                                        : "text-slate-700 hover:bg-slate-50 hover:text-blue-900"
+                                    ? "bg-blue-900 text-white"
+                                    : "text-slate-700 hover:bg-slate-50 hover:text-blue-900"
                                     }`}
                             >
                                 {link.name}
