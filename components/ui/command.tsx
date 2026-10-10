@@ -10,7 +10,7 @@ import {
   DialogDescription,
   DialogHeader,
   DialogTitle,
-} from "@/components/ui/dialog"
+} from "@/app/shared/components/ui/dialog"
 import {
   InputGroup,
   InputGroupAddon,
