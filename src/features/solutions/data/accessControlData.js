@@ -3,7 +3,7 @@ export const accessControlContent = {
   subtitle: "SECURITY SOLUTION",
   description:
     "Secure facility access using RFID cards, tags, and digital credentials. Our access control solution provides robust security with flexible credential options and full audit trails.",
-  image: "/images/solutions/access-control.jpeg",
+  image: "/images/solutions/rfid-access-control.png",
   benefits: [
     {
       title: "Secure Access",

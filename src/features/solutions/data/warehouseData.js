@@ -3,7 +3,7 @@ export const warehouseContent = {
   subtitle: "WAREHOUSE SOLUTION",
   description:
     "Automate inbound, outbound, and inventory processes for seamless logistics operations. Our RFID warehouse automation solution increases throughput, reduces errors and cuts operational costs.",
-  image: "/images/solutions/warehouse-automation.jpeg",
+  image: "/images/solutions/rfid-warehouse-automation.png",
   benefits: [
     {
       title: "Automated Inbound Processing",

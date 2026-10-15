@@ -3,7 +3,7 @@ export const toolTrackingContent = {
     subtitle: "TOOL TRACKING SOLUTION",
     description:
         "Monitor tools, equipment, and maintenance history to prevent loss and optimize usage. Our RFID tool tracking solution brings full visibility and accountability to your tool inventory.",
-    image: "/images/solutions/tool-tracking.jpeg",
+    image: "/images/solutions/rfid-tool-tracking.png",
     benefits: [
         {
             title: "Prevent Tool Loss",

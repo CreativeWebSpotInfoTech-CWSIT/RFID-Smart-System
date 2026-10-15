@@ -3,7 +3,7 @@ export const assetTrackingContent = {
     subtitle: "ASSET TRACKING SOLUTION",
     description:
         "Track valuable assets in real-time with automated RFID identification and location monitoring. Our solution provides complete visibility into your asset inventory, reducing loss and improving operational efficiency across offices, hospitals, factories and more.",
-    image: "/images/solutions/asset-tracking.jpeg",
+    image: "/images/solutions/rfid-asset-tracking.png",
     benefits: [
         {
             title: "Real-Time Visibility",

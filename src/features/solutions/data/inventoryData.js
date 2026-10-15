@@ -3,7 +3,7 @@ export const inventoryContent = {
     subtitle: "INVENTORY SOLUTION",
     description:
         "Achieve inventory accuracy of up to 99.9% while drastically reducing manual counting effort. Our RFID-based inventory management system automates stock tracking and provides real-time visibility across retail, warehouse and pharmacy environments.",
-    image: "/images/solutions/inventory-management.jpeg",
+    image: "/images/solutions/rfid-inventory-management.png",
     benefits: [
         {
             title: "99.9% Accuracy",

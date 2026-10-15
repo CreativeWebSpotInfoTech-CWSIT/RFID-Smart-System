@@ -3,7 +3,7 @@ export const wipTrackingContent = {
   subtitle: "MANUFACTURING SOLUTION",
   description:
     "Monitor production status and material flow across manufacturing assembly lines. Our WIP tracking solution provides complete visibility into your production process and helps eliminate bottlenecks.",
-  image: "/images/solutions/wip-tracking.jpeg",
+  image: "/images/solutions/rfid-wip-tracking.png",
   benefits: [
     {
       title: "Real-Time Production Visibility",

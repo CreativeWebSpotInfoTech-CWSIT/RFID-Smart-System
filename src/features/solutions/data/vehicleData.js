@@ -3,7 +3,7 @@ export const vehicleContent = {
   subtitle: "VEHICLE SOLUTION",
   description:
     "RFID-based parking access control and automated fleet identification systems. Streamline vehicle entry, exit and tracking across your facilities.",
-  image: "/images/solutions/vehicle-management.jpeg",
+  image: "/images/solutions/rfid-vehicle-management.png",
   benefits: [
     {
       title: "Automated Access",

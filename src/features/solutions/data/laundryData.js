@@ -3,7 +3,7 @@ export const laundryContent = {
   subtitle: "LAUNDRY SOLUTION",
   description:
     "Automate linen counting, distribution, and lifecycle management for hotels and hospitals. Our RFID laundry management system reduces loss and improves operational efficiency.",
-  image: "/images/solutions/laundry-management.jpeg",
+  image: "/images/solutions/rfid-laundry-management.png",
   benefits: [
     {
       title: "Automated Counting",
