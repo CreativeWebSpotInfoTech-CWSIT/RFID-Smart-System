@@ -86,7 +86,7 @@ export default function Navbar() {
                 <Link href="/" className="group flex shrink-0 items-center gap-2.5 lg:gap-3.5">
                     <div className="relative flex h-10 w-10 lg:h-12 lg:w-12 items-center justify-center overflow-hidden rounded-xl bg-white shadow-sm ring-1 ring-slate-200 transition-all duration-300 group-hover:ring-blue-500/50 group-hover:shadow-md">
                         <Image
-                            src="/images/logo.png"
+                            src="/images/logo/logo.png"
                             alt="RFID Smart System"
                             width={48}
                             height={48}

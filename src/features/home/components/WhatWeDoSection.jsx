@@ -120,7 +120,7 @@ export default function WhatWeDoSection() {
                         <div className="relative overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-2xl">
                             <div className="relative aspect-[4/3] overflow-hidden">
                                 <Image
-                                    src="/EntryImg.jpeg"
+                                    src="/images/home/rfid-integration.jpeg"
                                     alt="RFID Smart System Enterprise Solutions"
                                     fill
                                     sizes="(max-width: 768px) 100vw, 50vw" className="object-cover"

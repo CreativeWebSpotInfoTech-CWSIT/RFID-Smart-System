@@ -75,7 +75,7 @@ export default function ExcellenceSection() {
                             {/* Image */}
                             <div className="relative aspect-[4/3] w-full overflow-hidden rounded-[1.5rem]">
                                 <Image
-                                    src="/images/img1.jpeg"
+                                    src="/images/home/rfid-automation.jpeg"
                                     alt="RFID Smart System - Enterprise RFID and IoT Solutions"
                                     fill
                                     className="object-cover transition-transform duration-700 hover:scale-105"
