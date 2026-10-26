@@ -2,7 +2,7 @@ export const faqs = [
     {
         question: "How do I request a quote for RFID products?",
         answer:
-            "Simply fill out the contact form with your requirements, or email us at info@rfidsmartsystem.com. Our sales team will prepare a customized quote within 24 hours based on your specific needs.",
+            "Simply fill out the contact form with your requirements, or email us at rfidsmartsystems@gmail.com. Our sales team will prepare a customized quote within 24 hours based on your specific needs.",
     },
     {
         question: "What is your typical response time?",

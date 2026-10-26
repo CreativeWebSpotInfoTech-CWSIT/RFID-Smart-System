@@ -4,5 +4,5 @@ export const socials = [
     { label: "Instagram", href: "#", type: "instagram" },
     { label: "YouTube", href: "#", type: "youtube" },
     { label: "Twitter", href: "#", type: "twitter" },
-    { label: "Email", href: "mailto:info@rfidsmartsystem.com", type: "email" },
+    { label: "Email", href: "mailto:rfidsmartsystems@gmail.com", type: "email" },
 ];

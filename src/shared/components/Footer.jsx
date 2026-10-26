@@ -196,7 +196,7 @@ export default function Footer() {
                                         <Phone className="h-4 w-4 text-blue-900" />
                                         +91 98403 03796
                                     </a> */}
-                                    <a href="mailto:info@rfidsmartsystem.com" className="flex items-center gap-2.5 transition hover:text-blue-900">
+                                    <a href="mailto:rfidsmartsystems@gmail.com" className="flex items-center gap-2.5 transition hover:text-blue-900">
                                         <Mail className="h-4 w-4 text-blue-900" />
                                         rfidsmartsystems@gmail.com
                                     </a>

@@ -83,7 +83,7 @@ const socials = [
     {
         icon: Mail,
         label: "Email",
-        href: "mailto:info@rfidsmartsystem.com",
+        href: "mailto:rfidsmartsystems@gmail.com",
         color: "hover:bg-blue-900",
     },
 ];
@@ -149,10 +149,10 @@ export default function SocialStrip() {
                             <p className="text-xs text-slate-400">We respond within 24 hours</p>
                         </div>
                         <a
-                            href="mailto:info@rfidsmartsystem.com"
+                            href="mailto:rfidsmartsystems@gmail.com"
                             className="rounded-full bg-blue-900 px-5 py-2.5 text-sm font-semibold text-white shadow-lg shadow-blue-900/30 transition-all hover:bg-blue-800 hover:shadow-xl"
                         >
-                            info@rfidsmartsystem.com
+                            rfidsmartsystems@gmail.com
                         </a>
                     </div>
                 </motion.div>

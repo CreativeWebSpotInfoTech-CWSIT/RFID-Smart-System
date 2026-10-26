@@ -17,7 +17,7 @@ export const infoCards = [
         icon: Mail,
         title: "Email Us",
         subtitle: "24/7 Support",
-        desc: "info@rfidsmartsystem.com",
+        desc: "rfidsmartsystems@gmail.com",
     },
     {
         icon: Clock,
