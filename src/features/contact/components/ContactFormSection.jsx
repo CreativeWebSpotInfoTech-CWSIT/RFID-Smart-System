@@ -245,7 +245,7 @@ export default function ContactFormSection() {
                                     <div className="mt-4 flex items-center gap-2 rounded-xl border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-700">
                                         <AlertCircle size={16} className="shrink-0" />
                                         Something went wrong. Please try again or email us at
-                                        info@rfidsmartsystem.com
+                                        rfidsmartsystems@gmail.com
                                     </div>
                                 )}
 
